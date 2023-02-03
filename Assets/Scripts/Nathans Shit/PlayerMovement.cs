@@ -130,11 +130,11 @@ namespace FPS.Player
                 Rotation();
                 Fall();
                 m_Rigidbody.useGravity = true;
-            }
+            }/*
             else
             {
                 Climbing();
-            }
+            }*/
 
             if(walking || turning)
             {
@@ -146,22 +146,34 @@ namespace FPS.Player
                 }
             }
 
+           
+
             MobileExtraButtons();
+        }
+
+        private void Update()
+        {
+            if (playerNo == 1)
+            {
+                verticalInput = Input.GetAxis("Vertical");
+                horizontalInput = Input.GetAxis("Horizontal");
+                horizontalInput1 = Input.GetAxis("Horizontal1");
+                verticalInput1 = Input.GetAxis("Vertical1");
+            }
+
+            if (playerNo == 2)
+            {
+                verticalInput = Input.GetAxis("P2Vertical");
+                horizontalInput = Input.GetAxis("P2Horizontal");
+                horizontalInput1 = Input.GetAxis("P2Horizontal1");
+                verticalInput1 = Input.GetAxis("P2Vertical1");
+            }
         }
 
         void Movement()
         {
             if (doomControl)
             {
-                if(playerNo == 1)
-                {
-                    verticalInput = Input.GetAxis("Vertical");
-                }
-                else
-                {
-                    verticalInput = Input.GetAxis("P2Vertical");
-                }
-                
 
                 if (verticalInput > 0)
                 {
@@ -182,17 +194,8 @@ namespace FPS.Player
             if (modernControl)
             {
 
-                if (playerNo == 1)
-                {
-                    verticalInput = Input.GetAxis("Vertical");
-                    horizontalInput = Input.GetAxis("Horizontal");
-                }
-                else
-                {
-                    verticalInput = Input.GetAxis("P2Vertical");
-                    horizontalInput = Input.GetAxis("P2Horizontal");
-                }
-                
+
+
 
                 if (verticalInput > 0)
                 {
@@ -228,14 +231,6 @@ namespace FPS.Player
         {
             if (doomControl)
             {
-                if (playerNo == 1)
-                {
-                    horizontalInput = Input.GetAxis("Horizontal");
-                }
-                else
-                {
-                    horizontalInput = Input.GetAxis("P2Horizontal");
-                }
 
                 if (horizontalInput1 > 0)
                 {
@@ -262,17 +257,6 @@ namespace FPS.Player
 
             if (modernControl)
             {
-
-                if (playerNo == 1)
-                {
-                    horizontalInput1 = Input.GetAxis("Horizontal1");
-                    verticalInput1 = Input.GetAxis("Vertical1");
-                }
-                else
-                {
-                    horizontalInput1 = Input.GetAxis("P2Horizontal1");
-                    verticalInput1 = Input.GetAxis("P2Vertical1");
-                }
                
 
                 if (horizontalInput1 > 0)
@@ -283,7 +267,7 @@ namespace FPS.Player
                 {
                     transform.Rotate(new Vector3(0, horizontalInput1, 0) * Time.deltaTime * rotateSpeed);
                 }
-
+                /*
                 if (playerNo == 1)
                 {
                     float mousehorizontalInput1 = Input.GetAxis("Mouse X");
@@ -296,7 +280,7 @@ namespace FPS.Player
                     {
                         transform.Rotate(Vector3.up * -mouseScence);
                     }
-                }
+                }*/
 
                 
             }
@@ -335,7 +319,7 @@ namespace FPS.Player
                 transform.Rotate(new Vector3(0, Mathf.Lerp(0f, 1f, 1f), 0) * Time.deltaTime * rotateSpeed);
             }
         }
-
+        /*
         void Climbing()
         {
             m_Rigidbody.useGravity = false;
@@ -366,7 +350,7 @@ namespace FPS.Player
             {
                 walking = false;
             }
-        }
+        }*/
 
         void Fall()
         {
