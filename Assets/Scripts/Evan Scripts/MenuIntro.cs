@@ -38,9 +38,19 @@ public class MenuIntro : MonoBehaviour
             title.SetActive(true);
         }
 
+        if (timer <= 1)
+        {
+            buttonsStuff.SetActive(true);            
+        }
+
         if (timer <= 0)
         {
-            buttonsStuff.SetActive(true);
+            timer = 14;
+        }
+
+        if (timer >= 13)
+        {
+            timer = 14;
         }
     }
 
