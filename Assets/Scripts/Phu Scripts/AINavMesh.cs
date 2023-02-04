@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class AINavMesh : MonoBehaviour
 {
     private NavMeshAgent navMeshAgent;
+    private float speed;
 
     private List<Transform> allPlayers = new List<Transform>();
     public Transform targetPlayer;
@@ -14,6 +15,10 @@ public class AINavMesh : MonoBehaviour
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+
+        //Sets the speed
+        speed = GetComponent<Enemy>().moveSpeed;
+        navMeshAgent.speed = speed;
 
         //Find all players and add to list
         List<GameObject> playerObject = new List<GameObject>();
