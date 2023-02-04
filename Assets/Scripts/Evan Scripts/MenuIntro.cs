@@ -6,10 +6,11 @@ using UnityEngine;
 
 public class MenuIntro : MonoBehaviour
 {
-    public float timer = 10f;
+    public float timer = 12f;
     public GameObject text;
     public Animator aniFade;
     public GameObject title;
+    public GameObject buttonsStuff;
     
     // Start is called before the first frame update
     void Start()
@@ -22,19 +23,24 @@ public class MenuIntro : MonoBehaviour
     {
         timer -= Time.deltaTime;
 
-        if (timer <= 5)
+        if (timer <= 7)
         {
             text.SetActive(true);
         }
 
-        if (timer <= 2)
+        if (timer <= 4)
         {
             aniFade.SetTrigger("FadeTrigger");
         }
-        if (timer <= 0)
+        if (timer <= 2)
         {
             
             title.SetActive(true);
+        }
+
+        if (timer <= 0)
+        {
+            buttonsStuff.SetActive(true);
         }
     }
 
