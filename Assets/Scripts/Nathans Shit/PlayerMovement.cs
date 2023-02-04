@@ -22,6 +22,7 @@ namespace FPS.Player
         [Header("Moving")]
         public float moveSpeedDoom;
         public float moveSpeedMordern;
+        public bool canMove;
 
         //[SerializeField] float jumpSpeed;
 
@@ -126,7 +127,10 @@ namespace FPS.Player
         {
             if (!climbing)
             {
-                Movement();
+                if (canMove)
+                {
+                    Movement();
+                }
                 //Rotation();
                 Fall();
                 m_Rigidbody.useGravity = true;

@@ -25,14 +25,12 @@ public class MoveRoots : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Physics.GetIgnoreCollision(GetComponent<BoxCollider>(), ground.GetComponent<TerrainCollider>());
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Physics.GetIgnoreCollision(GetComponent<BoxCollider>(), ground.GetComponent<TerrainCollider>());
-
         if (stopped)
         {
             waitTimer += Time.deltaTime;
@@ -67,7 +65,6 @@ public class MoveRoots : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Bottom"))
         {
-            Debug.Log(collision);
             waitTime = Random.Range(timeMin, timeMax);
             stopped = true;
             direction = false;
@@ -77,7 +74,6 @@ public class MoveRoots : MonoBehaviour
 
         if (collision.gameObject.tag == ("Top"))
         {
-            Debug.Log(collision);
             waitTime = Random.Range(timeMin, timeMax);
             stopped = true;
             direction = true;
@@ -87,9 +83,4 @@ public class MoveRoots : MonoBehaviour
         }
     }
 
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-    }
 }
