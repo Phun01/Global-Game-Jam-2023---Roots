@@ -42,23 +42,29 @@ public class ShootNail : MonoBehaviour
     {
         if (player)
         {
-            if (player.playerNo == 2 && Input.GetButtonDown("Fire1") && !shot)
+            if (player.playerNo == 1)
             {
-                GameObject instBullet = Instantiate(nail, transform.position, Quaternion.identity) as GameObject;
-                Rigidbody instBulletRB = instBullet.GetComponent<Rigidbody>();
-                instBulletRB.AddForce(transform.forward * bulletSpeed);
-                //audio.NailGun();
-                shot = true;
-                reload = 0;
+                if ((Input.GetAxis("Fire1") > 0.2) && !shot)
+                {
+                    GameObject instBullet = Instantiate(nail, transform.position, Quaternion.identity) as GameObject;
+                    Rigidbody instBulletRB = instBullet.GetComponent<Rigidbody>();
+                    instBulletRB.AddForce(transform.forward * bulletSpeed);
+                    //audio.NailGun();
+                    shot = true;
+                    reload = 0;
+                }
             }
-            if (player.playerNo == 1 && Input.GetButtonDown("P2Fire1") && !shot)
+            if (player.playerNo == 2)
             {
-                GameObject instBullet = Instantiate(nail, transform.position, Quaternion.identity) as GameObject;
-                Rigidbody instBulletRB = instBullet.GetComponent<Rigidbody>();
-                instBulletRB.AddForce(transform.forward * bulletSpeed);
-                //audio.NailGun();
-                shot = true;
-                reload = 0;
+                if ((Input.GetAxis("P2Fire1") > 0.2) && !shot)
+                {
+                    GameObject instBullet = Instantiate(nail, transform.position, Quaternion.identity) as GameObject;
+                    Rigidbody instBulletRB = instBullet.GetComponent<Rigidbody>();
+                    instBulletRB.AddForce(transform.forward * bulletSpeed);
+                    //audio.NailGun();
+                    shot = true;
+                    reload = 0;
+                }
             }
         }
     }
