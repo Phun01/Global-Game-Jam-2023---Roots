@@ -127,7 +127,7 @@ namespace FPS.Player
             if (!climbing)
             {
                 Movement();
-                Rotation();
+                //Rotation();
                 Fall();
                 m_Rigidbody.useGravity = true;
             }/*
@@ -195,20 +195,20 @@ namespace FPS.Player
             {
 
 
-                if (verticalInput > 0.2)
+                if (verticalInput > 0.3)
                 {
                     m_Rigidbody.AddForce(-transform.forward * moveSpeedMordern);
                 }
-                else if (verticalInput < -0.2)
+                else if (verticalInput < -0.3)
                 {
                     m_Rigidbody.AddForce(transform.forward * moveSpeedMordern);
                 }
 
-                if (horizontalInput > 0.2)
+                if (horizontalInput > 0.3)
                 {
                     m_Rigidbody.AddForce(transform.right * moveSpeedMordern);
                 }
-                else if (horizontalInput < -0.2)
+                else if (horizontalInput < -0.3)
                 {
                     m_Rigidbody.AddForce(-transform.right * moveSpeedMordern);
                 }
