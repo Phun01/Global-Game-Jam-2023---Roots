@@ -47,6 +47,7 @@ public class ShootNail : MonoBehaviour
                 if ((Input.GetAxis("Fire1") > 0.2) && !shot)
                 {
                     GameObject instBullet = Instantiate(nail, transform.position, Quaternion.identity) as GameObject;
+                    instBullet.GetComponent<Bullet>().player = player.playerNo;
                     Rigidbody instBulletRB = instBullet.GetComponent<Rigidbody>();
                     instBulletRB.AddForce(transform.forward * bulletSpeed);
                     //audio.NailGun();
@@ -59,6 +60,7 @@ public class ShootNail : MonoBehaviour
                 if ((Input.GetAxis("P2Fire1") > 0.2) && !shot)
                 {
                     GameObject instBullet = Instantiate(nail, transform.position, Quaternion.identity) as GameObject;
+                    instBullet.GetComponent<Bullet>().player = player.playerNo;
                     Rigidbody instBulletRB = instBullet.GetComponent<Rigidbody>();
                     instBulletRB.AddForce(transform.forward * bulletSpeed);
                     //audio.NailGun();

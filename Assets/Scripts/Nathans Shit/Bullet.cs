@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     public float deathTimer;
     public float deathTime;
     bool death;
+    public int player;
 
     // Update is called once per frame
     void Update()
