@@ -12,27 +12,38 @@ public class LevelManager : MonoBehaviour
 
     public int totalScore;
 
+    public float totalEnemySpawns;
+    public float civillianDeathTimer;
+    public float civillianDeathDelay;
+
     void Awake()
     {
-        //Find all players and add to list
-        List<GameObject> playerObject = new List<GameObject>();
-        playerObject.AddRange(GameObject.FindGameObjectsWithTag("Player"));
-        foreach (GameObject x in playerObject)
-        {
-            if(x.GetComponent<PlayerResources>().playerNumber == 1)
-            {
-                player1Object = x;
-            }
-
-            if (x.GetComponent<PlayerResources>().playerNumber == 2)
-            {
-                player2Object = x;
-            }
-        }
-
         //Set default lives
         player1Lives = 3;
         player2Lives = 3;
+    }
+
+    //Find players
+    public void FindPlayers()
+    {
+        if(player1Object == null && player2Object == null)
+        {
+            //Find all players and add to list
+            List<GameObject> playerObject = new List<GameObject>();
+            playerObject.AddRange(GameObject.FindGameObjectsWithTag("Player"));
+            foreach (GameObject x in playerObject)
+            {
+                if (x.GetComponent<PlayerResources>().playerNumber == 1)
+                {
+                    player1Object = x;
+                }
+
+                if (x.GetComponent<PlayerResources>().playerNumber == 2)
+                {
+                    player2Object = x;
+                }
+            }
+        }    
     }
 
     //Subtracts and saves life

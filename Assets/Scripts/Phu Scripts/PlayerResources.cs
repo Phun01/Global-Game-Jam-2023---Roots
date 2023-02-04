@@ -16,6 +16,7 @@ public class PlayerResources : MonoBehaviour
     void Start()
     {
         levelManager = GameObject.Find("GameManager").GetComponent<LevelManager>();
+        levelManager.FindPlayers(); 
 
         //Default health/ammo
         playerHealth = 10;
