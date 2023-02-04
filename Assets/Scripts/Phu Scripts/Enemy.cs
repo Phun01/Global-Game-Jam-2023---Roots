@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     public int enemyHealth;
     public float moveSpeed;
 
+    public GameObject hitBox;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+
         //Test damage on enemy
         if (Input.GetKeyDown(KeyCode.C))
         {
@@ -28,7 +31,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // Take damage/die & award score
+    //Take damage/die & award score
     public void TakeDamage()
     {
         enemyHealth -= 1;
@@ -39,6 +42,19 @@ public class Enemy : MonoBehaviour
             levelManager.totalScore += 300;
             Destroy(gameObject);
         }
+    }
+
+    //Enemy Attacks
+    public void Attack()
+    {
+        //null check
+        if(hitBox == null)
+        {
+            return;
+        }
+
+        //activate hitbox
+        hitBox.SetActive(true);
     }
 
 }
