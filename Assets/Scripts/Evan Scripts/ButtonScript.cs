@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ButtonScript : MonoBehaviour
 {
@@ -56,5 +57,15 @@ public class ButtonScript : MonoBehaviour
     public void QuitButton()
     {
         Application.Quit();
+    }
+
+    public void LoadArcade()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void LoadRacer()
+    {
+        SceneManager.LoadScene(2);
     }
 }
