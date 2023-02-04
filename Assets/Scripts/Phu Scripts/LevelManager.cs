@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager instance;
+
     public GameObject player1Object;
     public GameObject player2Object;
 
@@ -18,6 +20,16 @@ public class LevelManager : MonoBehaviour
 
     void Awake()
     {
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+
         //Set default lives
         player1Lives = 3;
         player2Lives = 3;
