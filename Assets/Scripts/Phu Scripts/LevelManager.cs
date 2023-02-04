@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
 
     public int totalScore;
 
+    public int waveDifficulty;
     public float totalEnemySpawns;
     public float civillianDeathTimer;
     public float civillianDeathDelay;
@@ -30,9 +31,7 @@ public class LevelManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //Set default lives
-        player1Lives = 3;
-        player2Lives = 3;
+        ResetValues();
     }
 
     //Find players
@@ -82,5 +81,22 @@ public class LevelManager : MonoBehaviour
         {
             Debug.Log("Player 2 ded");
         }
+    }
+
+    //Method to reset all values for a new game
+    public void ResetValues()
+    {
+        //Sets the default lives
+        player1Lives = 3;
+        player2Lives = 3;
+
+        //Sets the default wave 1 values
+        waveDifficulty = 1;
+        totalEnemySpawns = 20;
+        civillianDeathTimer = 60;
+        civillianDeathDelay = 40;
+
+        //Sets score back to 0
+        totalScore = 0;
     }
 }
