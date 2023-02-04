@@ -5,7 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/NathansScene.unity
     guid: a9d935f101cb6c4479b363bcce370ea4
+  - enabled: 1
+    path: Assets/Scenes/MainMenuScene.unity
+    guid: 894fa5f9f589113418474758aa76e62c
+  - enabled: 1
+    path: Assets/Scenes/PlayScene.unity
+    guid: f68aec1aa2ed36b49bfbe8fbf0aa9345
+  - enabled: 1
+    path: Assets/Scenes/RaceScene.unity
+    guid: 0d08218dddddf6d47a4bd19ce08c38c7
   m_configObjects: {}
