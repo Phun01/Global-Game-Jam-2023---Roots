@@ -7,12 +7,12 @@ public class AINavMesh : MonoBehaviour
 {
     private Enemy enemyScript;
     private NavMeshAgent navMeshAgent;
+    private LevelManager levelManager;
+
     private float speed;
     private bool chasingMode;
 
     public float attackRange;
-
-    private List<Transform> allPlayers = new List<Transform>();
 
     public Transform targetPlayer;
     private float distanceToPlayer;
@@ -26,18 +26,11 @@ public class AINavMesh : MonoBehaviour
     {
         enemyScript = GetComponent<Enemy>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        levelManager = GameObject.Find("GameManager").GetComponent<LevelManager>();
 
         //Sets the speed
         speed = GetComponent<Enemy>().moveSpeed;
         navMeshAgent.speed = speed;
-
-        //Find all players and add to list
-        List<GameObject> playerObject = new List<GameObject>();
-        playerObject.AddRange(GameObject.FindGameObjectsWithTag("Player"));
-        foreach (GameObject x in playerObject)
-        {
-            allPlayers.Add(x.transform);
-        }
 
         //Find default target
         FindNearestTarget();
@@ -76,16 +69,6 @@ public class AINavMesh : MonoBehaviour
             //Perform attack
             EnemyAttack();
         }
-
-        /*Test move to target
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //Find nearest target
-            FindNearestTarget();
-
-            navMeshAgent.destination = targetPlayer.position;
-        }
-        */
     }
 
     //Method to find nearest target
@@ -104,30 +87,39 @@ public class AINavMesh : MonoBehaviour
             closestPlayer = Vector3.Distance(targetPlayer.transform.position, transform.position);
         }
 
-        foreach(Transform t in allPlayers)
+        //Check distance
+        float player1Distance = Vector3.Distance(levelManager.player1Object.transform.position, transform.position);
+        float player2Distance = Vector3.Distance(levelManager.player2Object.transform.position, transform.position);
+
+        //Compare distances of both players
+        if (player1Distance < closestPlayer);
         {
-            float distance;
+            //Player 1 is target
+            targetPlayer = levelManager.player1Object.transform;
+            closestPlayer = player1Distance;
+        }
 
-            distance = Vector3.Distance(t.position, transform.position);
-
-            Debug.Log(t + " " + distance);
-
-            //Compare distance
-            if(distance < closestPlayer)
-            {
-                //Change target player
-                closestPlayer = distance;
-                targetPlayer = t;
-            }
+        if (player2Distance < closestPlayer) ;
+        {
+            //Player 2 is target
+            targetPlayer = levelManager.player2Object.transform;
+            closestPlayer = player2Distance;
         }
     }
 
     //Change player target
-    private void ChangeTarget(int playerNumber)
+    private void ChangeTarget()
     {
-        playerNumber -= 1;
-
-        targetPlayer = allPlayers[playerNumber];
+        if (targetPlayer.gameObject == levelManager.player1Object.gameObject)
+        {
+            //Change to player 2
+            targetPlayer = levelManager.player2Object.transform;
+        }
+        else
+        {
+            //Change to player 1
+            targetPlayer = levelManager.player1Object.transform;
+        }
     }
 
     //Enemy attack
