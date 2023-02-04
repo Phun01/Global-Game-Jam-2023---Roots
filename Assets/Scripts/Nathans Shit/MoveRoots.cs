@@ -25,13 +25,13 @@ public class MoveRoots : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Physics.GetIgnoreCollision(GetComponent<BoxCollider>(), ground.GetComponent<MeshCollider>());
+        Physics.GetIgnoreCollision(GetComponent<BoxCollider>(), ground.GetComponent<TerrainCollider>());
     }
 
     // Update is called once per frame
     void Update()
     {
-        Physics.GetIgnoreCollision(GetComponent<BoxCollider>(), ground.GetComponent<MeshCollider>());
+        Physics.GetIgnoreCollision(GetComponent<BoxCollider>(), ground.GetComponent<TerrainCollider>());
 
         if (stopped)
         {
