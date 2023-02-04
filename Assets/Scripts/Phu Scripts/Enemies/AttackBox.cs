@@ -29,7 +29,7 @@ public class AttackBox : MonoBehaviour
     //Deal damages
     private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("col");
+        //Debug.Log("col");
 
         if (collision.gameObject.CompareTag("Player"))
         {

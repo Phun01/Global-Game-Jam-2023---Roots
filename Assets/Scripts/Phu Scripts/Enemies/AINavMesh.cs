@@ -91,15 +91,17 @@ public class AINavMesh : MonoBehaviour
         float player1Distance = Vector3.Distance(levelManager.player1Object.transform.position, transform.position);
         float player2Distance = Vector3.Distance(levelManager.player2Object.transform.position, transform.position);
 
+        Debug.Log(player1Distance + " " + player2Distance); 
+
         //Compare distances of both players
-        if (player1Distance < closestPlayer);
+        if (player1Distance < closestPlayer)
         {
             //Player 1 is target
             targetPlayer = levelManager.player1Object.transform;
             closestPlayer = player1Distance;
         }
-
-        if (player2Distance < closestPlayer) ;
+        
+        if (player2Distance < closestPlayer)
         {
             //Player 2 is target
             targetPlayer = levelManager.player2Object.transform;
@@ -132,7 +134,7 @@ public class AINavMesh : MonoBehaviour
         //Stop chasing
         chasingMode = false;
 
-        Debug.Log("Tree Smack");
+        //Debug.Log("Tree Smack");
 
         //Perform the attack
         enemyScript.Attack();

@@ -12,8 +12,14 @@ public class Civillian : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levelManager = GameObject.Find("GameManager").GetComponent<LevelManager>();
-        civillianManager = GameObject.Find("Timers").GetComponent<CivillianManager >();
+        if (GameObject.Find("GameManager") != null)
+        {
+            levelManager = GameObject.Find("GameManager").GetComponent<LevelManager>();
+        }
+        if (GameObject.Find("Timers") != null)
+        {
+            civillianManager = GameObject.Find("Timers").GetComponent<CivillianManager>();
+        }
     }
 
     //Save the civillian
@@ -26,8 +32,8 @@ public class Civillian : MonoBehaviour
 
             civillianManager.savedCivillians++;
             civillianManager.AddBufferTime();
-            civillianManager.ReduceCivillians(civIndex);
-            Destroy(gameObject);
+            civillianManager.DestroyCiv(civIndex);
+            civillianManager.ReduceCivillians();
         }    
     }
 }

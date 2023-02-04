@@ -14,7 +14,10 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levelManager = GameObject.Find("GameManager").GetComponent<LevelManager>();
+        if (GameObject.Find("GameManager") != null)
+        {
+            levelManager = GameObject.Find("GameManager").GetComponent<LevelManager>();
+        }
 
         //Set enemy health
         enemyHealth = 4;

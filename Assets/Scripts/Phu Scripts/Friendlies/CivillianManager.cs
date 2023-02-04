@@ -9,7 +9,7 @@ public class CivillianManager : MonoBehaviour
 
     private bool noMoreCivs;
     public int savedCivillians;
-    private int numberOfCivillians = 8;
+    private int numberOfCivillians;
     private List<GameObject> civilliansList;
 
     private float deathCountdown;
@@ -17,9 +17,15 @@ public class CivillianManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levelManager = GameObject.Find("GameManager").GetComponent<LevelManager>();
+        if (GameObject.Find("GameManager") != null)
+        {
+            levelManager = GameObject.Find("GameManager").GetComponent<LevelManager>();
+        }
 
-        civilliansList = new List<GameObject>();
+        Debug.Log(civilliansList.Count);
+
+        numberOfCivillians = civilliansList.Count;
+
         noMoreCivs = false;
         deathCountdown = levelManager.civillianDeathTimer;
     }
@@ -32,10 +38,12 @@ public class CivillianManager : MonoBehaviour
         //Random civillian dies
         if(deathCountdown <= 0 && noMoreCivs == false)
         {
-            int rip = Random.Range(0, civilliansList.Count);
+            int i = Random.Range(0, civilliansList.Count);
 
-            Destroy(civilliansList[rip]);
-            ReduceCivillians(rip);
+            Destroy(civilliansList[i]);
+            civilliansList.RemoveAt(i);
+
+            ReduceCivillians();
             AddBufferTime();
         }
     }
@@ -47,12 +55,9 @@ public class CivillianManager : MonoBehaviour
     }
 
     //Removes a civillian and check Game Over
-    public void ReduceCivillians(int index)
+    public void ReduceCivillians()
     {
         numberOfCivillians--;
-
-        //Remove the civillian at index
-        civilliansList.RemoveAt(index);
 
         //If number of civillians drops to 0
         if(numberOfCivillians <= 0)
@@ -76,6 +81,13 @@ public class CivillianManager : MonoBehaviour
     public void AddCivillian(GameObject civillian)
     {
         civilliansList.Add(civillian);
+    }
+
+    //Destroys civillians
+    public void DestroyCiv(int index)
+    {
+        Destroy(civilliansList[index]);
+        civilliansList.RemoveAt(index);
     }
 
     //Clears civillians from list

@@ -17,8 +17,15 @@ public class EntitySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levelManager = GameObject.Find("GameManager").GetComponent<LevelManager>();
-        civManager = GameObject.Find("Timers").GetComponent<CivillianManager>();
+        if(GameObject.Find("GameManager") != null)
+        {
+            levelManager = GameObject.Find("GameManager").GetComponent<LevelManager>();
+        }
+        
+        if(GameObject.Find("Timers") != null)
+        {
+            civManager = GameObject.Find("Timers").GetComponent<CivillianManager>();
+        }
 
         //Clear civList
         civManager.ClearCivillians();
@@ -85,7 +92,6 @@ public class EntitySpawner : MonoBehaviour
 
                 civManager.AddCivillian(civ);
                 x++;
-                Debug.Log(x);
             }
 
         }
