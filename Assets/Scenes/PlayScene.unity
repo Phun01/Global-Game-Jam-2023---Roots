@@ -1807,7 +1807,7 @@ MonoBehaviour:
   mobileControl1: 0
   moveSpeedDoom: 7
   moveSpeedMordern: 50
-  canMove: 0
+  canMove: 1
   walkTime: 0.4
   walking: 0
   turning: 0
@@ -12054,7 +12054,7 @@ MonoBehaviour:
   mobileControl1: 0
   moveSpeedDoom: 7
   moveSpeedMordern: 50
-  canMove: 0
+  canMove: 1
   walkTime: 0.4
   walking: 0
   turning: 0
