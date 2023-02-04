@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public GameObject player1Object;
+    public GameObject player2Object;
+
     public int player1Lives;
     public int player2Lives;
 
@@ -11,6 +14,22 @@ public class LevelManager : MonoBehaviour
 
     void Awake()
     {
+        //Find all players and add to list
+        List<GameObject> playerObject = new List<GameObject>();
+        playerObject.AddRange(GameObject.FindGameObjectsWithTag("Player"));
+        foreach (GameObject x in playerObject)
+        {
+            if(x.GetComponent<PlayerResources>().playerNumber == 1)
+            {
+                player1Object = x;
+            }
+
+            if (x.GetComponent<PlayerResources>().playerNumber == 2)
+            {
+                player2Object = x;
+            }
+        }
+
         //Set default lives
         player1Lives = 3;
         player2Lives = 3;
