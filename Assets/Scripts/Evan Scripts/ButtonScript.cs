@@ -8,6 +8,7 @@ public class ButtonScript : MonoBehaviour
     public GameObject title;
     public GameObject butts;
     public GameObject hTP;
+    public GameObject creds;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,22 @@ public class ButtonScript : MonoBehaviour
         title.SetActive(true);
         butts.SetActive(true);
         hTP.SetActive(false);
+    }
+
+    public void CreditBack()
+    {
+        //turn on title and butts, turn off cred
+        title.SetActive(true);
+        butts.SetActive(true);
+        creds.SetActive(false);
+    }
+
+    public void ToCreds()
+    {
+        //turn off title and butt, turn on cred
+        title.SetActive(false);
+        butts.SetActive(false);
+        creds.SetActive(true);
     }
 
     public void QuitButton()
