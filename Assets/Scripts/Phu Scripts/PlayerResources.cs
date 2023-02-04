@@ -19,7 +19,7 @@ public class PlayerResources : MonoBehaviour
 
         //Default health/ammo
         playerHealth = 10;
-        playerAmmo = 60;
+        playerAmmo = 40;
 
         //Sets player lives equal to value stored
         switch(playerNumber)
@@ -85,12 +85,18 @@ public class PlayerResources : MonoBehaviour
     public void ObtainHealthPack()
     {
         playerHealth = 10;
+        levelManager.totalScore += 200;
+
+        Debug.Log(levelManager.totalScore);
     }
 
     //Method to gain Ammo with Magazine
     public void ObtainMagazine()
     {
         playerAmmo += 20;
+        levelManager.totalScore += 100;
+
+        Debug.Log(levelManager.totalScore);
     }
 
 }
