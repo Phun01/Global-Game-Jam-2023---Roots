@@ -153,7 +153,7 @@ namespace FPS.Player
 
         private void Update()
         {
-            if (playerNo == 1)
+            if (playerNo <= 1)
             {
                 verticalInput = Input.GetAxis("Vertical");
                 horizontalInput = Input.GetAxis("Horizontal");
@@ -161,7 +161,7 @@ namespace FPS.Player
                 verticalInput1 = Input.GetAxis("Vertical1");
             }
 
-            if (playerNo == 2)
+            if (playerNo > 1)
             {
                 verticalInput = Input.GetAxis("P2Vertical");
                 horizontalInput = Input.GetAxis("P2Horizontal");
@@ -175,12 +175,12 @@ namespace FPS.Player
             if (doomControl)
             {
 
-                if (verticalInput > 0)
+                if (verticalInput > 0.1)
                 {
                     m_Rigidbody.velocity = transform.forward * moveSpeedDoom;
                 }
 
-                if (verticalInput < 0)
+                if (verticalInput < -0.1)
                 {
                     m_Rigidbody.velocity = -transform.forward * moveSpeedDoom;
                     backWards = true;
@@ -195,21 +195,20 @@ namespace FPS.Player
             {
 
 
-
-
-                if (verticalInput > 0)
-                {
-                    m_Rigidbody.AddForce(transform.forward * moveSpeedMordern);
-                }
-                if (verticalInput < 0)
+                if (verticalInput > 0.2)
                 {
                     m_Rigidbody.AddForce(-transform.forward * moveSpeedMordern);
                 }
-                if (horizontalInput > 0)
+                else if (verticalInput < -0.2)
+                {
+                    m_Rigidbody.AddForce(transform.forward * moveSpeedMordern);
+                }
+
+                if (horizontalInput > 0.2)
                 {
                     m_Rigidbody.AddForce(transform.right * moveSpeedMordern);
                 }
-                if (horizontalInput < 0)
+                else if (horizontalInput < -0.2)
                 {
                     m_Rigidbody.AddForce(-transform.right * moveSpeedMordern);
                 }
