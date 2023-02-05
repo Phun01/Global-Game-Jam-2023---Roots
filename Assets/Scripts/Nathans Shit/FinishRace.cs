@@ -28,6 +28,7 @@ public class FinishRace : MonoBehaviour
 
     //sounds
     public AudioSource goSound;
+    public AudioSource chuggaChug;
 
     // Start is called before the first frame update
     void Start()
@@ -99,6 +100,7 @@ public void TimerSeq()
             }
             if (timer <= 2)
             {
+                chuggaChug.Play();
                 goSound.Play();
                 num1.SetActive(false);
                 readyTxt.SetActive(false);
@@ -107,17 +109,20 @@ public void TimerSeq()
                 countDown = "GO!";
 
                 Debug.Log(countDown);
-                for (int i = 0; i < player.Length; i++)
-                {
-                    player[i].canMove = true;
-                }
+                player [1].canMove = true;
+                player [2].canMove = true;
                 
             }
 
             if (timer <= 0)
             {
                 goTxt.SetActive(false);
-                timer = 0;
+                timer = 15;
+            }
+
+            if (timer >= 14)
+            {
+                timer =15;
             }
 }
     private void OnTriggerEnter(Collider other)
