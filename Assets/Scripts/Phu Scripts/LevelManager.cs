@@ -10,6 +10,9 @@ public class LevelManager : MonoBehaviour
     public GameObject player1Object;
     public GameObject player2Object;
 
+    public bool player1Dead;
+    public bool player2Dead;
+
     public int player1Lives;
     public int player2Lives;
 
@@ -104,6 +107,7 @@ public class LevelManager : MonoBehaviour
     public void GameOver()
     {
         SceneManager.LoadScene(0);
+        ResetValues();
         fadeIn.SetActive(true);
     }
 

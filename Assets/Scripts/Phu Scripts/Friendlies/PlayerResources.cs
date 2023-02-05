@@ -79,6 +79,11 @@ public class PlayerResources : MonoBehaviour
             playerLives -= 1;
             levelManager.LoseLife(playerNumber);
 
+            if (playerLives < 0)
+            {
+                Dead();
+            }
+
             //Set health back to 10
             playerHealth = 10;
 

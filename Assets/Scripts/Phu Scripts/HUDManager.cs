@@ -36,6 +36,8 @@ public class HUDManager : MonoBehaviour
         {
             levelManager = GameObject.Find("GameManager").GetComponent<LevelManager>();
         }
+
+        UpdateScore();
     }
 
     public void UpdatePlayerHUD(PlayerResources player)
