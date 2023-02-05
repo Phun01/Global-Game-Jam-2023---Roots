@@ -113,6 +113,13 @@ public class LevelManager : MonoBehaviour
         LoadLevel(0);
         ResetValues();
         fadeIn.SetActive(true);
+        if (PlayerPrefs.GetInt("Highscore") < totalScore)
+        {
+            PlayerPrefs.SetInt("Highscore", totalScore);
+        }
+        //code here for when player dies
+
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
 
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class ButtonScript : MonoBehaviour
 {
@@ -15,10 +16,12 @@ public class ButtonScript : MonoBehaviour
     public AudioSource selectTone;
     public AudioSource gameModeSounds;
 
+    public TMP_Text highscoreText;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        highscoreText.text = "" + PlayerPrefs.GetInt("Highscore");
     }
 
     // Update is called once per frame

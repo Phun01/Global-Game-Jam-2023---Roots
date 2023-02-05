@@ -1929,7 +1929,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 42069
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 480746a9d88f6c044ad6e3a29ddb7109, type: 2}
   m_sharedMaterial: {fileID: -5336939164324803202, guid: 480746a9d88f6c044ad6e3a29ddb7109, type: 2}
@@ -2787,6 +2787,7 @@ MonoBehaviour:
   fadeOut: {fileID: 1844949082}
   selectTone: {fileID: 783297254}
   gameModeSounds: {fileID: 783297255}
+  highscoreText: {fileID: 570362386}
 --- !u!82 &783297253
 AudioSource:
   m_ObjectHideFlags: 0
