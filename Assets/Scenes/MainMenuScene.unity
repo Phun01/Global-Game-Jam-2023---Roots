@@ -2454,7 +2454,6 @@ MonoBehaviour:
   fadeOut: {fileID: 1844949082}
   selectTone: {fileID: 783297254}
   gameModeSounds: {fileID: 783297255}
-  HoverSound: {fileID: 0}
 --- !u!82 &783297253
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2563,7 +2562,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6e3a00d19d75ae043a8982eb5e9cc740, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6670,7 +6669,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2046285733}
+      - m_Target: {fileID: 1960934801}
         m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
         m_MethodName: Select
         m_Mode: 1

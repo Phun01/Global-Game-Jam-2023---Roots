@@ -2,6 +2,7 @@ using FPS.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinishRace : MonoBehaviour
 {
@@ -54,8 +55,21 @@ public class FinishRace : MonoBehaviour
         {
             winner = "Player " + winnerNo + " Wins!!";
             Debug.Log(winner);
-            Time.timeScale = 0f;
+            LoadLevel(0);
         }       
+    }
+
+    public void LoadLevel (int sceneIndex)
+    {
+        StartCoroutine(LoadAsynchronously(sceneIndex));
+    }
+
+    //scene load
+    IEnumerator LoadAsynchronously (int sceneIndex)
+    {
+        yield return new WaitForSeconds(2);
+
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
     }
 
 public void WinSeq()
