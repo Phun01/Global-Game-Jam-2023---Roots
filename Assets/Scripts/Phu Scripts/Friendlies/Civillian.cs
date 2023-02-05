@@ -35,6 +35,10 @@ public class Civillian : MonoBehaviour
             if(civillianManager.requiredCivillians > 0)
             {
                 civillianManager.requiredCivillians -= 1;
+            }
+
+            if(civillianManager.requiredCivillians == 0)
+            {
                 civillianManager.Extraction();
             }
 

@@ -103,7 +103,7 @@ public class LevelManager : MonoBehaviour
     public void ReloadLevel()
     {
         UnityEngine.SceneManagement.Scene scene = SceneManager.GetActiveScene();
-
+        totalScore += 2500;
         SceneManager.LoadScene(scene.name);
     }
 

@@ -38,7 +38,7 @@ public class PlayerResources : MonoBehaviour
         }
 
         //Default health/ammo
-        playerHealth = 1;
+        playerHealth = 10;
         playerAmmo = 40;
 
         //Sets player lives equal to value stored

@@ -43,31 +43,38 @@ public class AINavMesh : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distanceToPlayer = Vector3.Distance(targetPlayer.transform.position, transform.position);
-
-        if(cooldownOn == true)
+        if(targetPlayer != null)
         {
-            cooldownTimer -= Time.deltaTime;
+            distanceToPlayer = Vector3.Distance(targetPlayer.transform.position, transform.position);
 
-            //Turn off cooldown and resume the chase
-            if(cooldownTimer <= 0 )
+            if (cooldownOn == true)
             {
-                chasingMode = true;
-                cooldownOn = false;
+                cooldownTimer -= Time.deltaTime;
+
+                //Turn off cooldown and resume the chase
+                if (cooldownTimer <= 0)
+                {
+                    chasingMode = true;
+                    cooldownOn = false;
+                }
+            }
+
+            //Chase nearest target
+            if (chasingMode == true)
+            {
+                navMeshAgent.destination = targetPlayer.position;
+            }
+
+            //Check if enemy is in attack range
+            if (distanceToPlayer <= attackRange && cooldownOn == false)
+            {
+                //Perform attack
+                EnemyAttack();
             }
         }
-
-        //Chase nearest target
-        if(chasingMode == true)
+        else
         {
-            navMeshAgent.destination = targetPlayer.position;
-        }
-
-        //Check if enemy is in attack range
-        if(distanceToPlayer <= attackRange && cooldownOn == false)
-        {
-            //Perform attack
-            EnemyAttack();
+            FindNearestTarget();
         }
     }
 
@@ -88,8 +95,26 @@ public class AINavMesh : MonoBehaviour
         }
 
         //Check distance
-        float player1Distance = Vector3.Distance(levelManager.player1Object.transform.position, transform.position);
-        float player2Distance = Vector3.Distance(levelManager.player2Object.transform.position, transform.position);
+        float player1Distance;
+        float player2Distance;
+
+        if(levelManager.player1Object != null)
+        {
+            player1Distance = Vector3.Distance(levelManager.player1Object.transform.position, transform.position);
+        }
+        else
+        {
+            player1Distance = 999;
+        }
+
+        if(levelManager.player2Object != null)
+        {
+            player2Distance = Vector3.Distance(levelManager.player2Object.transform.position, transform.position);
+        }
+        else
+        {
+            player2Distance = 999;
+        }
 
         //Compare distances of both players
         if (player1Distance < closestPlayer)
