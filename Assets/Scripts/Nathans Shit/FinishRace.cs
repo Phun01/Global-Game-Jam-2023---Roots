@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class FinishRace : MonoBehaviour
 {
-    public PlayerMovement[] player;
+    public PlayerMovement player1;
+    public PlayerMovement player2;
     public PlayerMovement winningPlayer;
     public string winner;
     public int winnerNo;
@@ -34,10 +35,9 @@ public class FinishRace : MonoBehaviour
     void Start()
     {
         start = false;
-        for(int i = 0; i < player.Length; i++)
-        {
-            player[i].canMove = false;
-        }
+
+        player1.canMove = false;
+        player2.canMove = false;
 
     }
 
@@ -109,9 +109,9 @@ public void TimerSeq()
                 countDown = "GO!";
 
                 Debug.Log(countDown);
-                player [1].canMove = true;
-                player [2].canMove = true;
-                
+                player1.canMove = true;
+                player2.canMove = true;
+
             }
 
             if (timer <= 0)
@@ -129,8 +129,19 @@ public void TimerSeq()
     {
         if (other.gameObject.tag == ("Player"))
         {
+            winningPlayer = other.gameObject.GetComponent<PlayerMovement>();
+            winnerNo = winningPlayer.playerNo;
             finished = true;
-            winnerNo = winningPlayer.GetComponent<PlayerMovement>().playerNo;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == ("Player"))
+        {
+            winningPlayer = collision.gameObject.GetComponent<PlayerMovement>();
+            winnerNo = winningPlayer.playerNo;
+            finished = true;
         }
     }
 }

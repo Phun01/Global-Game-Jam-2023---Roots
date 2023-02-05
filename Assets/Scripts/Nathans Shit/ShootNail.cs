@@ -28,7 +28,6 @@ public class ShootNail : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Shoot();
 
         if (shot)
         {
@@ -37,6 +36,11 @@ public class ShootNail : MonoBehaviour
             {
                 shot = false;
             }
+        }
+
+        if(playerResources!= null)
+        {
+            Shoot();
         }
 
     }
