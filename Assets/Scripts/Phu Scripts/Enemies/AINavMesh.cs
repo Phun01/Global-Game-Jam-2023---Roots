@@ -107,20 +107,24 @@ public class AINavMesh : MonoBehaviour
             targetPlayer = levelManager.player2Object.transform;
             closestPlayer = player2Distance;
         }
+
+        enemyScript.targetPlayer = targetPlayer.gameObject.GetComponent<PlayerResources>().playerNumber;
     }
 
     //Change player target
-    private void ChangeTarget()
+    public void ChangeTarget()
     {
         if (targetPlayer.gameObject == levelManager.player1Object.gameObject)
         {
             //Change to player 2
             targetPlayer = levelManager.player2Object.transform;
+            enemyScript.targetPlayer = 2;
         }
         else
         {
             //Change to player 1
             targetPlayer = levelManager.player1Object.transform;
+            enemyScript.targetPlayer = 1;
         }
     }
 

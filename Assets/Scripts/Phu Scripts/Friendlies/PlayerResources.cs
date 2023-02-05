@@ -38,7 +38,7 @@ public class PlayerResources : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Test Damage Player 1
+        /*Test Damage Player 1
         if(Input.GetKeyDown(KeyCode.Z) & playerNumber == 1)
         {
             Debug.Log("Player 1 took damage");
@@ -51,6 +51,7 @@ public class PlayerResources : MonoBehaviour
             Debug.Log("Player 2 took damage");
             TakeDamage(1);
         }
+        */
     }
 
     //Method to take damage

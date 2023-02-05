@@ -413,6 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ee8e033947c1a439929817f2f222d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetPlayer: 0
   enemyHealth: 0
   moveSpeed: 5.5
   hitBox: {fileID: 2646500490126655838}

@@ -22,8 +22,6 @@ public class CivillianManager : MonoBehaviour
             levelManager = GameObject.Find("GameManager").GetComponent<LevelManager>();
         }
 
-        numberOfCivillians = civilliansList.Count;
-
         noMoreCivs = false;
         deathCountdown = levelManager.civillianDeathTimer;
     }
@@ -85,6 +83,9 @@ public class CivillianManager : MonoBehaviour
     public void AddCivillian(GameObject civillian)
     {
         civilliansList.Add(civillian);
+        numberOfCivillians = civilliansList.Count;
+
+        Debug.Log(numberOfCivillians);
     }
 
     //Check for valid civillians
