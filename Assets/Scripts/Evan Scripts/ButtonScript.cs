@@ -14,7 +14,6 @@ public class ButtonScript : MonoBehaviour
     public GameObject fadeOut;
     public AudioSource selectTone;
     public AudioSource gameModeSounds;
-    public AudioSource HoverSound;
 
     // Start is called before the first frame update
     void Start()
@@ -97,11 +96,6 @@ public class ButtonScript : MonoBehaviour
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
     }
 
-    public void OnPointerEnter( PointerEventData ped ) 
-    {
-       HoverSFX();
-    }
-
     public void SelectSFX()
     {
         selectTone.Play();
@@ -111,11 +105,4 @@ public class ButtonScript : MonoBehaviour
     {
         gameModeSounds.Play();
     }
-
-    public void HoverSFX()
-    {
-        HoverSound.Play();
-    }
-
-
 }
