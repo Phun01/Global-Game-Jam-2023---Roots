@@ -15,11 +15,14 @@ public class ShootNail : MonoBehaviour
 
     public Audio audio;
 
+    public PlayerResources playerResources;
+
     // Start is called before the first frame update
     void Start()
     {
         //audio = GameObject.FindGameObjectWithTag("Audio").GetComponent<Audio>();
         player = gameObject.GetComponentInParent<PlayerMovement>();
+        playerResources = gameObject.GetComponentInParent<PlayerResources>();
     }
 
     // Update is called once per frame
@@ -42,7 +45,7 @@ public class ShootNail : MonoBehaviour
     {
         if (player)
         {
-            if (player.playerNo == 1)
+            if (player.playerNo == 1 && playerResources.playerNumber == 1 && playerResources.playerAmmo > 0)
             {
                 if ((Input.GetAxis("Fire1") > 0.2) && !shot)
                 {
@@ -53,9 +56,12 @@ public class ShootNail : MonoBehaviour
                     //audio.NailGun();
                     shot = true;
                     reload = 0;
+
+                    //use ammo
+                    playerResources.LoseAmmo();
                 }
             }
-            if (player.playerNo == 2)
+            if (player.playerNo == 2 && playerResources.playerNumber == 2 && playerResources.playerAmmo > 0)
             {
                 if ((Input.GetAxis("P2Fire1") > 0.2) && !shot)
                 {
@@ -66,6 +72,9 @@ public class ShootNail : MonoBehaviour
                     //audio.NailGun();
                     shot = true;
                     reload = 0;
+
+                    //use ammo
+                    playerResources.LoseAmmo();
                 }
             }
         }

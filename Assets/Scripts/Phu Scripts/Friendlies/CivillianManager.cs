@@ -22,8 +22,6 @@ public class CivillianManager : MonoBehaviour
             levelManager = GameObject.Find("GameManager").GetComponent<LevelManager>();
         }
 
-        Debug.Log(civilliansList.Count);
-
         numberOfCivillians = civilliansList.Count;
 
         noMoreCivs = false;

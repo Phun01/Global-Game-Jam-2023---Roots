@@ -36,9 +36,12 @@ public class Bullet : MonoBehaviour
         {
             death = true;
         }
-        /*
-        if (collision.gameObject.GetComponent<"Enemy"> != null)
+        
+        if (collision.gameObject.GetComponent<Enemy>() != null)
         {
-        }*/
+            Enemy enemyScript = collision.gameObject.GetComponent<Enemy>();
+
+            enemyScript.TakeDamage();
+        }
     }
 }
