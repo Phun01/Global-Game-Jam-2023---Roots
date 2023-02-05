@@ -3411,12 +3411,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Save the civilians from the tree roots and the beavers that have gnawed
-    at the tree, which in return have turned them evil.
+  m_text: 'Save the civilians from the beavers that have gnawed at the tree, which
+    in return have turned them evil.
 
 
-    Once you have rescued
-    enough civilians, Head back to the helicopter pad and escape!'
+    Once you have rescued enough civilians,
+    Head back to the helicopter pad and escape!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 480746a9d88f6c044ad6e3a29ddb7109, type: 2}
   m_sharedMaterial: {fileID: -5336939164324803202, guid: 480746a9d88f6c044ad6e3a29ddb7109, type: 2}
