@@ -2032,7 +2032,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!1001 &187742185
 PrefabInstance:
@@ -4438,6 +4438,7 @@ MonoBehaviour:
   reload: 0
   cooldown: 0.5
   audio: {fileID: 0}
+  playerResources: {fileID: 0}
 --- !u!4 &356116498 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3573635469671207153, guid: ce60a1b6f10615747994d31feeb53057, type: 3}
@@ -14183,7 +14184,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!1001 &1535475725
 PrefabInstance:
@@ -16419,6 +16420,7 @@ MonoBehaviour:
   reload: 0
   cooldown: 0.5
   audio: {fileID: 0}
+  playerResources: {fileID: 0}
 --- !u!1001 &1738340430
 PrefabInstance:
   m_ObjectHideFlags: 0

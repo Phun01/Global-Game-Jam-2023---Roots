@@ -38,8 +38,8 @@ public class CivillianManager : MonoBehaviour
         {
             int i = Random.Range(0, civilliansList.Count);
 
-            Destroy(civilliansList[i]);
             civilliansList.RemoveAt(i);
+            Destroy(civilliansList[i]);
 
             ReduceCivillians();
             AddBufferTime();
@@ -84,8 +84,8 @@ public class CivillianManager : MonoBehaviour
     //Destroys civillians
     public void DestroyCiv(int index)
     {
-        Destroy(civilliansList[index]);
         civilliansList.RemoveAt(index);
+        Destroy(civilliansList[index]);
     }
 
     //Clears civillians from list
