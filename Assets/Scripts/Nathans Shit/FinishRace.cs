@@ -59,12 +59,12 @@ public class FinishRace : MonoBehaviour
 
 public void WinSeq()
 {
-    if(winnerNo == 0)
+    if(winnerNo == 1)
         {
             winLeft.SetActive(true);
         }
 
-        if(winnerNo == 1)
+        if(winnerNo == 2)
         {
             winRight.SetActive(true);
         }
