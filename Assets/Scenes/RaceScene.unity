@@ -11088,7 +11088,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &859924014
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18261,6 +18261,8 @@ MonoBehaviour:
   num2: {fileID: 125749308}
   num1: {fileID: 375481335}
   goTxt: {fileID: 512321346}
+  winLeft: {fileID: 1479401439}
+  winRight: {fileID: 1962745064}
   goSound: {fileID: 313159658}
 --- !u!4 &1432762305 stripped
 Transform:
@@ -23989,7 +23991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1973858416
 RectTransform:
   m_ObjectHideFlags: 0
