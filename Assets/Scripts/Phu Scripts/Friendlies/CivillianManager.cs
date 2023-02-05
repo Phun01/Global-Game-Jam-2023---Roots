@@ -6,8 +6,10 @@ using UnityEngine;
 public class CivillianManager : MonoBehaviour
 {
     private LevelManager levelManager;
+    private HUDManager hudManager;
 
     private bool noMoreCivs;
+    public int requiredCivillians;
     public int savedCivillians;
     private int numberOfCivillians;
     private List<GameObject> civilliansList;
@@ -21,6 +23,11 @@ public class CivillianManager : MonoBehaviour
         {
             levelManager = GameObject.Find("GameManager").GetComponent<LevelManager>();
         }
+
+        hudManager = GameObject.Find("HUDManager").GetComponent<HUDManager>();
+
+        requiredCivillians = 4;
+        hudManager.UpdateCivillianStats(this);
 
         noMoreCivs = false;
         deathCountdown = levelManager.civillianDeathTimer;
@@ -61,8 +68,10 @@ public class CivillianManager : MonoBehaviour
     {
         numberOfCivillians--;
 
+        hudManager.UpdateCivillianStats(this);
+
         //If number of civillians drops to 0
-        if(numberOfCivillians <= 0)
+        if (numberOfCivillians <= 0)
         {
             noMoreCivs = true;
 
@@ -84,9 +93,10 @@ public class CivillianManager : MonoBehaviour
     {
         civilliansList.Add(civillian);
         numberOfCivillians = civilliansList.Count;
-
-        Debug.Log(numberOfCivillians);
     }
+
+    //Return remaining civillians
+
 
     //Check for valid civillians
     public int CheckCivillians()

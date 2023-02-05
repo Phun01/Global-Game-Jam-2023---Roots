@@ -91,8 +91,6 @@ public class AINavMesh : MonoBehaviour
         float player1Distance = Vector3.Distance(levelManager.player1Object.transform.position, transform.position);
         float player2Distance = Vector3.Distance(levelManager.player2Object.transform.position, transform.position);
 
-        Debug.Log(player1Distance + " " + player2Distance); 
-
         //Compare distances of both players
         if (player1Distance < closestPlayer)
         {

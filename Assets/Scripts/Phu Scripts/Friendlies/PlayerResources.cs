@@ -65,8 +65,10 @@ public class PlayerResources : MonoBehaviour
     {
         playerHealth -= damage;
 
+        hudManager.UpdatePlayerHUD(this);
+
         //Die
-        if(playerHealth <= 0)
+        if (playerHealth <= 0)
         {
             playerLives -= 1;
             levelManager.LoseLife(playerNumber);

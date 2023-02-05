@@ -31,6 +31,12 @@ public class Civillian : MonoBehaviour
             levelManager.totalScore += 1000;
 
             civillianManager.savedCivillians++;
+            
+            if(civillianManager.requiredCivillians > 0)
+            {
+                civillianManager.requiredCivillians -= 1;
+            }
+
             civillianManager.AddBufferTime();
             civillianManager.DestroyCiv(civIndex);
             civillianManager.ReduceCivillians();

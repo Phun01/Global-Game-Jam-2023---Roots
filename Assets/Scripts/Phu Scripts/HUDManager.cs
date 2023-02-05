@@ -16,7 +16,10 @@ public class HUDManager : MonoBehaviour
     public GameObject player2Ammo;
 
     public GameObject totalScoreObject;
+
     public GameObject civilliansRemaining;
+    public GameObject civilliansText;
+    public GameObject extractionText;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +34,7 @@ public class HUDManager : MonoBehaviour
     {
         //Gets variables from player
         int playerNumber = player.playerNumber;
-        int playerHealth = player.playerHealth;
+        float playerHealth = player.playerHealth;
         int playerLives = player.playerLives;
         int playerAmmo = player.playerAmmo;
 
@@ -45,6 +48,23 @@ public class HUDManager : MonoBehaviour
         {
             player2Health.fillAmount = playerHealth / 10;
             player2Ammo.GetComponent<TMP_Text>().text = playerAmmo.ToString();
+        }
+
+    }
+
+    public void UpdateCivillianStats(CivillianManager cm)
+    {
+        if(cm.requiredCivillians > 0)
+        {
+            civilliansRemaining.SetActive(true);
+            civilliansText.SetActive(true);
+            civilliansRemaining.GetComponent<TMP_Text>().text = cm.requiredCivillians.ToString();
+        }
+        else
+        {
+            civilliansRemaining.SetActive(false);
+            civilliansText.SetActive(false);
+            extractionText.SetActive(true);
         }
 
     }
