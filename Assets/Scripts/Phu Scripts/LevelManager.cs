@@ -110,7 +110,7 @@ public class LevelManager : MonoBehaviour
     //Game Over
     public void GameOver()
     {
-        SceneManager.LoadScene(0);
+        LoadLevel(0);
         ResetValues();
         fadeIn.SetActive(true);
     }
@@ -131,5 +131,18 @@ public class LevelManager : MonoBehaviour
 
         //Sets score back to 0
         totalScore = 0;
+    }
+
+    public void LoadLevel (int sceneIndex)
+    {
+        StartCoroutine(LoadAsynchronously(sceneIndex));
+    }
+
+    //scene load
+    IEnumerator LoadAsynchronously (int sceneIndex)
+    {
+        yield return new WaitForSeconds(2);
+
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
     }
 }
