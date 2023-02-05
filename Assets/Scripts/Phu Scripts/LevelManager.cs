@@ -21,6 +21,8 @@ public class LevelManager : MonoBehaviour
     public float civillianDeathTimer;
     public float civillianDeathDelay;
 
+    public GameObject fadeIn;
+
     void Awake()
     {
         if(instance == null)
@@ -103,6 +105,7 @@ public class LevelManager : MonoBehaviour
     public void GameOver()
     {
         SceneManager.LoadScene(0);
+        fadeIn.SetActive(true);
     }
 
 
