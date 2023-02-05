@@ -37,13 +37,16 @@ public class LevelManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        player1Dead = false;
+        player2Dead = false;
+
         ResetValues();
     }
 
     //Find players
     public void FindPlayers()
     {
-        if(player1Object == null && player2Object == null)
+        if (player1Object == null && player2Object == null)
         {
             //Find all players and add to list
             List<GameObject> playerObject = new List<GameObject>();
@@ -60,7 +63,8 @@ public class LevelManager : MonoBehaviour
                     player2Object = x;
                 }
             }
-        }    
+        }
+
     }
 
     //Subtracts and saves life
@@ -80,12 +84,12 @@ public class LevelManager : MonoBehaviour
         //Game Over
         if(player1Lives < 0)
         {
-            Destroy(player1Object);
+            player1Dead = true;
         }
 
         if (player2Lives < 0)
         {
-            Destroy(player2Object);
+            player2Dead = true;
         }
 
         //Trigger Game Over

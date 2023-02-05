@@ -21,8 +21,24 @@ public class PlayerResources : MonoBehaviour
 
         hudManager = GameObject.Find("HUDManager").GetComponent<HUDManager>();
 
+        if(playerNumber == 1)
+        {
+            if(levelManager.player1Dead)
+            {
+                Dead();
+            }
+        }
+
+        if(playerNumber == 2)
+        {
+            if(levelManager.player2Dead)
+            {
+                Dead();
+            }
+        }
+
         //Default health/ammo
-        playerHealth = 10;
+        playerHealth = 1;
         playerAmmo = 40;
 
         //Sets player lives equal to value stored
@@ -35,12 +51,6 @@ public class PlayerResources : MonoBehaviour
             case 2:
                 playerLives = levelManager.player2Lives;
                 break;
-        }
-
-        //Kills player if lives is less than 0
-        if(playerLives < 0)
-        {
-            Dead();
         }
 
         //Update player HUD
