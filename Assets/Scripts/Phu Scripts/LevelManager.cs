@@ -118,8 +118,6 @@ public class LevelManager : MonoBehaviour
             PlayerPrefs.SetInt("Highscore", totalScore);
         }
         //code here for when player dies
-
-        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
 
 
