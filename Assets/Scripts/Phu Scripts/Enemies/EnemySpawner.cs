@@ -19,8 +19,8 @@ public class EnemySpawner : MonoBehaviour
             spawnManager = GameObject.Find("Timers").GetComponent<EnemySpawnerManager>();
         }
 
-        //Set random spawn timer
-        spawnTimer = Random.Range(5f, 15f);
+        //Set spawn rates
+        spawnTimer = Random.Range(10f, 40f);
         cooldown = false;
     }
 
@@ -51,7 +51,7 @@ public class EnemySpawner : MonoBehaviour
     //Cooldown
     public void Cooldown()
     {
-        spawnTimer = Random.Range(5f, 15f);
+        spawnTimer = Random.Range(10f, 40f);
         cooldown = false;
     }
 }

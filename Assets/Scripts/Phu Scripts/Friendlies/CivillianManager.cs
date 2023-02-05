@@ -38,7 +38,13 @@ public class CivillianManager : MonoBehaviour
         {
             int i = Random.Range(0, civilliansList.Count);
 
-            civilliansList.RemoveAt(i);
+            if(civilliansList[i] == null)
+            {
+                int temp = CheckCivillians();
+
+                i = temp;
+            }
+
             Destroy(civilliansList[i]);
 
             ReduceCivillians();
@@ -81,10 +87,24 @@ public class CivillianManager : MonoBehaviour
         civilliansList.Add(civillian);
     }
 
+    //Check for valid civillians
+    public int CheckCivillians()
+    {
+        for(int i = 0; i < civilliansList.Count; i++)
+        {
+            if (civilliansList[i] != null)
+            {
+                return i;
+            }
+        }
+
+        //None found
+        return 0;
+    }
+
     //Destroys civillians
     public void DestroyCiv(int index)
     {
-        civilliansList.RemoveAt(index);
         Destroy(civilliansList[index]);
     }
 
