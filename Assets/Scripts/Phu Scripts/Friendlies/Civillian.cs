@@ -35,6 +35,7 @@ public class Civillian : MonoBehaviour
             if(civillianManager.requiredCivillians > 0)
             {
                 civillianManager.requiredCivillians -= 1;
+                civillianManager.Extraction();
             }
 
             civillianManager.AddBufferTime();

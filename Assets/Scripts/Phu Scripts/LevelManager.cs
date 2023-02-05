@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -74,14 +76,35 @@ public class LevelManager : MonoBehaviour
         //Game Over
         if(player1Lives < 0)
         {
-            Debug.Log("Player 1 ded");
+            Destroy(player1Object);
         }
 
         if (player2Lives < 0)
         {
-            Debug.Log("Player 2 ded");
+            Destroy(player2Object);
         }
+
+        //Trigger Game Over
+        if(player1Lives < 0 && player2Lives < 0)
+        {
+            GameOver();
+        }    
     }
+
+    //Reset Level
+    public void ReloadLevel()
+    {
+        UnityEngine.SceneManagement.Scene scene = SceneManager.GetActiveScene();
+
+        SceneManager.LoadScene(scene.name);
+    }
+
+    //Game Over
+    public void GameOver()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 
     //Method to reset all values for a new game
     public void ResetValues()

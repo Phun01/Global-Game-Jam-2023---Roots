@@ -25,9 +25,6 @@ public class PlayerResources : MonoBehaviour
         playerHealth = 10;
         playerAmmo = 40;
 
-        //Update player HUD
-        hudManager.UpdatePlayerHUD(this);
-
         //Sets player lives equal to value stored
         switch(playerNumber)
         {
@@ -39,6 +36,15 @@ public class PlayerResources : MonoBehaviour
                 playerLives = levelManager.player2Lives;
                 break;
         }
+
+        //Kills player if lives is less than 0
+        if(playerLives < 0)
+        {
+            Dead();
+        }
+
+        //Update player HUD
+        hudManager.UpdatePlayerHUD(this);
     }
 
     // Update is called once per frame
@@ -93,6 +99,12 @@ public class PlayerResources : MonoBehaviour
         {
             //No ammo
         }
+    }
+
+    //Method to kill the player
+    public void Dead()
+    {
+        Destroy(gameObject);
     }
 
     //Method to recover Health with Health Pack

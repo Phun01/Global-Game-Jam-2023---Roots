@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EntitySpawner : MonoBehaviour
 {
-    private LevelManager levelManager;
     private CivillianManager civManager;
 
     private List<GameObject> spawnPoints = new List<GameObject>();
@@ -17,11 +16,6 @@ public class EntitySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(GameObject.Find("GameManager") != null)
-        {
-            levelManager = GameObject.Find("GameManager").GetComponent<LevelManager>();
-        }
-        
         if(GameObject.Find("Timers") != null)
         {
             civManager = GameObject.Find("Timers").GetComponent<CivillianManager>();

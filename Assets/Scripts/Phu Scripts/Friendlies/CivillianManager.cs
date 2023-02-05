@@ -8,6 +8,7 @@ public class CivillianManager : MonoBehaviour
     private LevelManager levelManager;
     private HUDManager hudManager;
 
+    public GameObject extractionPoint;
     private bool noMoreCivs;
     public int requiredCivillians;
     public int savedCivillians;
@@ -79,10 +80,12 @@ public class CivillianManager : MonoBehaviour
             if(savedCivillians >= 4)
             {
                 //You is winner
+                levelManager.ReloadLevel();
             }
             else
             {
                 //Game Over stuff
+                levelManager.GameOver();
             }
         }
 
@@ -95,7 +98,11 @@ public class CivillianManager : MonoBehaviour
         numberOfCivillians = civilliansList.Count;
     }
 
-    //Return remaining civillians
+    //Turn on Extraction
+    public void Extraction()
+    {
+        extractionPoint.SetActive(true);
+    }
 
 
     //Check for valid civillians

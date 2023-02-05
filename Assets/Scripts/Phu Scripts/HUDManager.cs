@@ -11,9 +11,17 @@ public class HUDManager : MonoBehaviour
     //HUD gameobjects
     public Image player1Health;
     public GameObject player1Ammo;
+    public GameObject player1Life1;
+    public GameObject player1Life2;
+    public GameObject player1Life3;
+    public GameObject player1Ded;
 
     public Image player2Health;
     public GameObject player2Ammo;
+    public GameObject player2Life1;
+    public GameObject player2Life2;
+    public GameObject player2Life3;
+    public GameObject player2Ded;
 
     public GameObject totalScoreObject;
 
@@ -38,18 +46,70 @@ public class HUDManager : MonoBehaviour
         int playerLives = player.playerLives;
         int playerAmmo = player.playerAmmo;
 
+        Debug.Log(playerLives);
         //Player 1 HUD update
         if(playerNumber == 1)
         {
             player1Health.fillAmount = playerHealth / 10;
             player1Ammo.GetComponent<TMP_Text>().text = playerAmmo.ToString();
+
+            //lives
+            switch (playerLives)
+            {
+                case 3:
+                    break;
+
+                case 2:
+                    player1Life1.SetActive(false); 
+                    break;
+
+                case 1:
+                    player1Life1.SetActive(false);
+                    player1Life2.SetActive(false);
+                    break;
+
+                case 0:
+                    player1Life1.SetActive(false);
+                    player1Life2.SetActive(false);
+                    player1Life3.SetActive(false);
+                    break;
+
+                case -1:
+                    player1Ded.SetActive(true);
+                    break;
+            }
         }
         else //Player 2 HUD update
         {
             player2Health.fillAmount = playerHealth / 10;
             player2Ammo.GetComponent<TMP_Text>().text = playerAmmo.ToString();
-        }
 
+            //lives
+            switch (playerLives)
+            {
+                case 3:
+                    break;
+
+                case 2:
+                    player2Life1.SetActive(false);
+                    break;
+
+                case 1:
+                    player2Life1.SetActive(false);
+                    player2Life2.SetActive(false);
+                    break;
+
+                case 0:
+                    player2Life1.SetActive(false);
+                    player2Life2.SetActive(false);
+                    player2Life3.SetActive(false);
+                    break;
+
+                case -1:
+                    player2Ded.SetActive(true);
+                    break;
+            }
+        }
     }
 
     public void UpdateCivillianStats(CivillianManager cm)
