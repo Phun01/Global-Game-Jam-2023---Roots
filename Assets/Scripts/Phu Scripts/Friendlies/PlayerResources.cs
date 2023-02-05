@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerResources : MonoBehaviour
 {
     private LevelManager levelManager;
+    private HUDManager hudManager;
     public int playerNumber;
 
     public int playerHealth;
@@ -18,9 +19,14 @@ public class PlayerResources : MonoBehaviour
         levelManager = GameObject.Find("GameManager").GetComponent<LevelManager>();
         levelManager.FindPlayers(); 
 
+        hudManager = GameObject.Find("HUDManager").GetComponent<HUDManager>();
+
         //Default health/ammo
         playerHealth = 10;
         playerAmmo = 40;
+
+        //Update player HUD
+        hudManager.UpdatePlayerHUD(this);
 
         //Sets player lives equal to value stored
         switch(playerNumber)
@@ -67,6 +73,8 @@ public class PlayerResources : MonoBehaviour
 
             //Set health back to 10
             playerHealth = 10;
+
+            hudManager.UpdatePlayerHUD(this);
         }
     }
 
@@ -76,6 +84,8 @@ public class PlayerResources : MonoBehaviour
         if (playerAmmo >= 1)
         {
             playerAmmo -= 1;
+
+            hudManager.UpdatePlayerHUD(this);
         }
         else
         {
@@ -89,7 +99,8 @@ public class PlayerResources : MonoBehaviour
         playerHealth = 10;
         levelManager.totalScore += 200;
 
-        Debug.Log(levelManager.totalScore);
+        hudManager.UpdatePlayerHUD(this);
+        hudManager.UpdateScore();
     }
 
     //Method to gain Ammo with Magazine
@@ -98,7 +109,8 @@ public class PlayerResources : MonoBehaviour
         playerAmmo += 20;
         levelManager.totalScore += 100;
 
-        Debug.Log(levelManager.totalScore);
+        hudManager.UpdatePlayerHUD(this);
+        hudManager.UpdateScore();
     }
 
 }
